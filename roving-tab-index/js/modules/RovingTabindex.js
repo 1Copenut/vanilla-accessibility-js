@@ -1,15 +1,15 @@
-import { keys } from './constants.js';
-
-function slice(nodes) {
-  return Array.prototype.slice.call(nodes);
-}
+import slice from '../helpers/slice.js';
+import uniqueId from '../helpers/uniqueId.js';
+import { keys } from "../constants/constants.js";
 
 function RovingTabindex(id, targetClass) {
   this.el = document.querySelector(id);
   this.listItems = slice(this.el.querySelectorAll(targetClass));
   this.selected = 0;
   this.focusedItem = this.listItems[this.selected];
-
+  this.createUniqueId(this.listItems);
+  
+  this.el.setAttribute('aria-activedescendant', this.focusedItem.getAttribute('id'));
   this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
   this.el.addEventListener('click', this.handleClick.bind(this));
 };
@@ -55,7 +55,16 @@ RovingTabindex.prototype.handleKeyDown = function(e) {
   }
 };
 
+RovingTabindex.prototype.createUniqueId = function(listItems) {
+  listItems.forEach(item => {
+    item.setAttribute('id', uniqueId('tabindex'));
+  });
+}
+
 RovingTabindex.prototype.changeFocus = function(idx) {
+  const parent = this.focusedItem.parentNode;
+  console.log(parent);
+
   // Set the old button to tabindex -1
   this.focusedItem.tabIndex = -1;
   this.focusedItem.setAttribute('aria-checked', 'false');
@@ -69,6 +78,7 @@ RovingTabindex.prototype.changeFocus = function(idx) {
   this.focusedItem.setAttribute('aria-checked', 'true');
   this.focusedItem.setAttribute('aria-selected', 'true');
   this.focusedItem.classList.add('roving-list-item--selected');
+  parent.setAttribute('aria-activedescendant', this.focusedItem.getAttribute('id'));
 };
 
 export default RovingTabindex;

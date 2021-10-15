@@ -1,8 +1,5 @@
-import { keys } from "./constants.js";
-
-function slice(nodes) {
-  return Array.prototype.slice.call(nodes);
-}
+import slice from '../helpers/slice.js';
+import { keys } from "../constants/constants.js";
 
 function RovingMultiselect(id, targetClass) {
   this.el = document.querySelector(id);
@@ -11,7 +8,19 @@ function RovingMultiselect(id, targetClass) {
   this.focusedItem = this.listItems[this.selected];
 
   this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
-  // this.el.addEventListener('click', this.handleClick.bind(this));
+  this.el.addEventListener('click', this.handleClick.bind(this));
+};
+
+RovingMultiselect.prototype.handleClick = function(e) {
+  const children = e.target.parentNode.children;
+
+  for (let i = 0; i < children.length; i++) {
+    if (e.target === children[i]) {
+      this.selected = i;
+      this.changeFocus(this.selected);
+      this.toggleChecked();
+    }
+  }
 };
 
 RovingMultiselect.prototype.handleKeyDown = function(e) {
@@ -61,7 +70,6 @@ RovingMultiselect.prototype.toggleChecked = function() {
 RovingMultiselect.prototype.changeFocus = function(idx) {
   // Set the old button to tabindex -1
   this.focusedItem.tabIndex = -1;
-  this.focusedItem.setAttribute('aria-checked', 'false');
   this.focusedItem.setAttribute('aria-selected', 'false');
   this.focusedItem.classList.remove('roving-multiselect-list-item--selected');
 
@@ -69,7 +77,6 @@ RovingMultiselect.prototype.changeFocus = function(idx) {
   this.focusedItem = this.listItems[idx];
   this.focusedItem.tabIndex = 0;
   this.focusedItem.focus();
-  this.focusedItem.setAttribute('aria-checked', 'true');
   this.focusedItem.setAttribute('aria-selected', 'true');
   this.focusedItem.classList.add('roving-multiselect-list-item--selected');
 };
