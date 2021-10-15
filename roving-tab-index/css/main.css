@@ -9,13 +9,15 @@ main {
   max-width: 65ch;
 }
 
-.roving-list-item {
+.roving-list-item,
+.roving-multiselect-list-item {
   border-radius: 6px;
   display: block;
   margin-bottom: 0.25rem;
   padding: 0.5rem;
 }
 
-.roving-list-item--selected {
+.roving-list-item--selected,
+.roving-multiselect-list-item--selected {
   background: tomato;
 }
