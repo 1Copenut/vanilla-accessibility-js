@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roving Tabindex for Listboxes</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <main>
+    <h1>Roving Tabindex for Listboxes</h1>
+    <p>What is roving tabindex? <a href="https://www.youtube.com/watch?v=uCIC2LNt0bk"
+        https://www.youtube.com/watch?v=uCIC2LNt0bk>Rob Dodson has a great A11yCast</a> that&rsquo;s just fourteen
+      minutes! JavaScript code for the roving tabindex was <a
+        href="https://a11y-solutions.stevenwoodson.com/solutions/focus/roving-focus/">provided by Steve Woodson</a> and
+      modded by me.</p>
+    <h2 id="heading-1">Select a single option</h2>
+    <ul aria-labelledby="heading-1" id="list-group-1" class="roving-list" role="listbox">
+      <li tabindex="0" aria-checked="true" aria-selected="true" class="roving-list-item roving-list-item--selected"
+        role="option">Option number one
+      </li>
+      <li tabindex="-1" aria-checked="false" aria-selected="false" class="roving-list-item" role="option">Option number
+        two</li>
+      <li tabindex="-1" aria-checked="false" aria-selected="false" class="roving-list-item" role="option">Option number
+        three</li>
+      <li tabindex="-1" aria-checked="false" aria-selected="false" class="roving-list-item" role="option">Option number
+        four</li>
+      <li tabindex="-1" aria-checked="false" aria-selected="false" class="roving-list-item" role="option">Option number
+        five</li>
+    </ul>
+    <h2>Written using old skool prototypal inheritance</h2>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS">Learn more about
+        object-oriented JavaScript</a> on the Mozilla Developer Network (MDN).</a> Did you notice the keyboard focus
+      jumped from the first two links to one of the list items to the last link when you pressed the <code>TAB</code>
+      key?
+    </p>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

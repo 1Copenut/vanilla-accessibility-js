@@ -1,0 +1,21 @@
+main {
+  margin: 0 auto;
+  width: 80ch;
+}
+
+.roving-list {
+  list-style-type: none;
+  padding: 0 0 0 1rem;
+  max-width: 65ch;
+}
+
+.roving-list-item {
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem;
+}
+
+.roving-list-item--selected {
+  background: tomato;
+}
