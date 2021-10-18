@@ -29,11 +29,11 @@ RovingTabindex.prototype.handleClick = function(e) {
 RovingTabindex.prototype.handleFocusIn = function() {
   const childId = this.focusedItem.getAttribute('id');
   this.el.setAttribute('aria-activedescendant', childId);
-}
+};
 
 RovingTabindex.prototype.handleFocusOut = function() {
   this.el.removeAttribute('aria-activedescendant');
-}
+};
 
 RovingTabindex.prototype.handleKeyDown = function(e) {
   switch(e.key) {
@@ -88,6 +88,6 @@ RovingTabindex.prototype.createUniqueId = function(listItems) {
   listItems.forEach(item => {
     item.setAttribute('id', uniqueId('select'));
   });
-}
+};
 
 export default RovingTabindex;
