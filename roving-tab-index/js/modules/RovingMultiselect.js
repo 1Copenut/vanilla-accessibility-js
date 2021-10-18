@@ -23,6 +23,7 @@ RovingMultiselect.prototype.handleClick = function(e) {
       this.selected = i;
       this.changeFocus(this.selected);
       this.toggleChecked();
+      this.toggleHelperText();
     }
   }
 };
@@ -30,11 +31,11 @@ RovingMultiselect.prototype.handleClick = function(e) {
 RovingMultiselect.prototype.handleFocusIn = function() {
   const childId = this.focusedItem.getAttribute('id');
   this.el.setAttribute('aria-activedescendant', childId);
-}
+};
 
 RovingMultiselect.prototype.handleFocusOut = function() {
   this.el.removeAttribute('aria-activedescendant');
-}
+};
 
 RovingMultiselect.prototype.handleKeyDown = function(e) {
   switch(e.key) {
@@ -67,6 +68,7 @@ RovingMultiselect.prototype.handleKeyDown = function(e) {
     case keys.ENTER: {
       e.preventDefault();
       this.toggleChecked();
+      this.toggleHelperText();
       break;
     }
   }
@@ -78,13 +80,24 @@ RovingMultiselect.prototype.toggleChecked = function() {
   } else {
     this.focusedItem.setAttribute('aria-checked', 'true');
   }
-}
+};
+
+RovingMultiselect.prototype.toggleHelperText = function() {
+  const isSelected = this.focusedItem.getAttribute('aria-checked');
+  let screenReaderText = this.focusedItem.lastElementChild;
+
+  if (isSelected === 'true') {
+    screenReaderText.textContent = '  is checked'
+  } else {
+    screenReaderText.textContent = '  is unchecked'
+  }
+};
 
 RovingMultiselect.prototype.createUniqueId = function(listItems) {
   listItems.forEach(item => {
-    item.setAttribute('id', uniqueId('multiselect-item'))
-  })
-}
+    item.setAttribute('id', uniqueId('multiselect-item'));
+  });
+};
 
 RovingMultiselect.prototype.changeFocus = function(idx) {
   const parent = this.focusedItem.parentNode;
