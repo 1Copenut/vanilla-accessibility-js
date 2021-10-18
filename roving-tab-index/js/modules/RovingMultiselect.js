@@ -9,6 +9,8 @@ function RovingMultiselect(id, targetClass) {
   this.focusedItem = this.listItems[this.selected];
   this.createUniqueId(this.listItems);
 
+  this.el.addEventListener('focusin', this.handleFocusIn.bind(this));
+  this.el.addEventListener('focusout', this.handleFocusOut.bind(this));
   this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
   this.el.addEventListener('click', this.handleClick.bind(this));
 };
@@ -24,6 +26,15 @@ RovingMultiselect.prototype.handleClick = function(e) {
     }
   }
 };
+
+RovingMultiselect.prototype.handleFocusIn = function() {
+  const childId = this.focusedItem.getAttribute('id');
+  this.el.setAttribute('aria-activedescendant', childId);
+}
+
+RovingMultiselect.prototype.handleFocusOut = function() {
+  this.el.removeAttribute('aria-activedescendant');
+}
 
 RovingMultiselect.prototype.handleKeyDown = function(e) {
   switch(e.key) {

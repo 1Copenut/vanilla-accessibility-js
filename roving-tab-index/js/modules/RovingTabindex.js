@@ -9,6 +9,8 @@ function RovingTabindex(id, targetClass) {
   this.focusedItem = this.listItems[this.selected];
   this.createUniqueId(this.listItems);
   
+  this.el.addEventListener('focusin', this.handleFocusIn.bind(this));
+  this.el.addEventListener('focusout', this.handleFocusOut.bind(this));
   this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
   this.el.addEventListener('click', this.handleClick.bind(this));
 };
@@ -23,6 +25,15 @@ RovingTabindex.prototype.handleClick = function(e) {
     }
   }
 };
+
+RovingTabindex.prototype.handleFocusIn = function() {
+  const childId = this.focusedItem.getAttribute('id');
+  this.el.setAttribute('aria-activedescendant', childId);
+}
+
+RovingTabindex.prototype.handleFocusOut = function() {
+  this.el.removeAttribute('aria-activedescendant');
+}
 
 RovingTabindex.prototype.handleKeyDown = function(e) {
   switch(e.key) {
@@ -54,12 +65,6 @@ RovingTabindex.prototype.handleKeyDown = function(e) {
   }
 };
 
-RovingTabindex.prototype.createUniqueId = function(listItems) {
-  listItems.forEach(item => {
-    item.setAttribute('id', uniqueId('select'));
-  });
-}
-
 RovingTabindex.prototype.changeFocus = function(idx) {
   const parent = this.focusedItem.parentNode;
 
@@ -78,5 +83,11 @@ RovingTabindex.prototype.changeFocus = function(idx) {
   this.focusedItem.classList.add('roving-list-item--selected');
   parent.setAttribute('aria-activedescendant', this.focusedItem.getAttribute('id'));
 };
+
+RovingTabindex.prototype.createUniqueId = function(listItems) {
+  listItems.forEach(item => {
+    item.setAttribute('id', uniqueId('select'));
+  });
+}
 
 export default RovingTabindex;
