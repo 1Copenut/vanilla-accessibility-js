@@ -1,4 +1,5 @@
 import slice from '../helpers/slice.js';
+import uniqueId from '../helpers/uniqueId.js';
 import { keys } from "../constants/constants.js";
 
 function RovingMultiselect(id, targetClass) {
@@ -6,6 +7,7 @@ function RovingMultiselect(id, targetClass) {
   this.listItems = slice(this.el.querySelectorAll(targetClass));
   this.selected = 0;
   this.focusedItem = this.listItems[this.selected];
+  this.createUniqueId(this.listItems);
 
   this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
   this.el.addEventListener('click', this.handleClick.bind(this));
@@ -67,7 +69,15 @@ RovingMultiselect.prototype.toggleChecked = function() {
   }
 }
 
+RovingMultiselect.prototype.createUniqueId = function(listItems) {
+  listItems.forEach(item => {
+    item.setAttribute('id', uniqueId('multiselect-item'))
+  })
+}
+
 RovingMultiselect.prototype.changeFocus = function(idx) {
+  const parent = this.focusedItem.parentNode;
+
   // Set the old button to tabindex -1
   this.focusedItem.tabIndex = -1;
   this.focusedItem.setAttribute('aria-selected', 'false');
@@ -79,6 +89,7 @@ RovingMultiselect.prototype.changeFocus = function(idx) {
   this.focusedItem.focus();
   this.focusedItem.setAttribute('aria-selected', 'true');
   this.focusedItem.classList.add('roving-multiselect-list-item--selected');
+  parent.setAttribute('aria-activedescendant', this.focusedItem.getAttribute('id'));
 };
 
 export default RovingMultiselect;

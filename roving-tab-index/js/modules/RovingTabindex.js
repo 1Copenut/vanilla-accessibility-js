@@ -9,7 +9,6 @@ function RovingTabindex(id, targetClass) {
   this.focusedItem = this.listItems[this.selected];
   this.createUniqueId(this.listItems);
   
-  this.el.setAttribute('aria-activedescendant', this.focusedItem.getAttribute('id'));
   this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
   this.el.addEventListener('click', this.handleClick.bind(this));
 };
@@ -57,13 +56,12 @@ RovingTabindex.prototype.handleKeyDown = function(e) {
 
 RovingTabindex.prototype.createUniqueId = function(listItems) {
   listItems.forEach(item => {
-    item.setAttribute('id', uniqueId('tabindex'));
+    item.setAttribute('id', uniqueId('select'));
   });
 }
 
 RovingTabindex.prototype.changeFocus = function(idx) {
   const parent = this.focusedItem.parentNode;
-  console.log(parent);
 
   // Set the old button to tabindex -1
   this.focusedItem.tabIndex = -1;
