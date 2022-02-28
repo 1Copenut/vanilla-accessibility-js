@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expandable Table Content</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <main>
+    <h1>Expandable Table Content</h1>
+    <table>
+      <caption>This table will have exandable content in each row</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Language</th>
+          <th scope="col">Latest project</th>
+          <th scope="col">Learn more</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">John Denver</th>
+          <td>Python</td>
+          <td>A fancy web scraper</td>
+          <td>
+            <button aria-label="Learn more about John Denver's project" type="button" class="cd-button--expand">Learn more</button>
+            <div hidden>
+              <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <script src="js/index.js" type="module"></script>
+</body>
+</html>

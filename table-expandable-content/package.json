@@ -4,7 +4,7 @@
   "description": "A proof-of-concept table row with expandable content",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "http-server -p 8080 -c-1"
   },
   "keywords": [
     "a11y",
