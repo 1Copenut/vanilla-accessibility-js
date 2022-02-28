@@ -1,3 +1,3 @@
-import ToggleAccordion from "./modules/accordion.js";
+import Accordion from "./modules/Accordion.js";
 
-const toggles = new ToggleAccordion('.cd-button--expand');
+const toggles = new Accordion('.cd-button--expand');
