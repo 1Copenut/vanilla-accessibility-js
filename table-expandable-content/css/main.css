@@ -12,7 +12,23 @@ a {
   color: mediumblue;
 }
 
+table {
+  border: 1px solid rebeccapurple;
+  width: 100%;
+}
+
 th,
 tr {
   text-align: left;
+}
+
+tbody tr {
+  position: relative;
+  vertical-align: top;
+}
+
+div.cd-content--toggle {
+  left: 0;
+  position: absolute;
+  right: 0;
 }

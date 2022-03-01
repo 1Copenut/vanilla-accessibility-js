@@ -12,9 +12,26 @@ function Accordion(elems) {
 }
 
 Accordion.prototype.toggleContent = function(target) {
-  console.log(target.nextElementSibling);
-  const text = target.nextElementSibling;
-  text.toggleAttribute('hidden');
+  const container = target.nextElementSibling;
+  
+  container.toggleAttribute('hidden');
+  
+  if(!container.hasAttribute('hidden')) {
+    this.setParentRowHeight(container);
+  } else {
+    container.closest('tr').removeAttribute('style');
+  }
+}
+
+Accordion.prototype.setParentRowHeight = function(container) {
+  const containerHeight = container.clientHeight;
+  const parentRow = container.closest('tr');
+  const parentRowHeight = container.closest('tr').clientHeight;
+
+  console.log(`Hidden content height: ${containerHeight} px`);
+  console.log(`Parent row height: ${parentRowHeight} px`);
+
+  parentRow.setAttribute('style', `height: ${containerHeight + 20}px`);
 }
 
 export default Accordion;

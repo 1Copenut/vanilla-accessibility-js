@@ -4,7 +4,7 @@
   "description": "A proof-of-concept table row with expandable content",
   "main": "index.js",
   "scripts": {
-    "dev": "http-server -p 8080 -c-1"
+    "start": "http-server -p 8080 -c-1"
   },
   "keywords": [
     "a11y",
