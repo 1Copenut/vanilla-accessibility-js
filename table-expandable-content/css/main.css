@@ -8,13 +8,28 @@ main {
   width: 72ch;
 }
 
+p {
+  margin: 0 0 0.5rem;
+}
+
 a {
   color: mediumblue;
 }
 
 table {
-  border: 1px solid rebeccapurple;
+  border-collapse: collapse;
+  position: relative;
   width: 100%;
+}
+
+caption {
+  border: 1px solid rebeccapurple;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+thead {
+  border-bottom: 3px solid black;
 }
 
 th,
@@ -22,13 +37,54 @@ tr {
   text-align: left;
 }
 
+thead th {
+  padding-bottom: 0.5rem;
+}
+
 tbody tr {
   position: relative;
   vertical-align: top;
 }
 
+tbody th,
+tbody td {
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 0;
+}
+
+thead th:first-of-type,
+tbody th {
+  padding-left: 0.25rem;
+}
+
+thead th:last-of-type,
+tbody td:last-of-type {
+  text-align: center;
+  width: 100px;
+}
+
+td button {
+  background: none;
+  border: none;
+  display: block;
+  height: 2rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 2rem;
+}
+
+button svg {
+  pointer-events: none;
+}
+
+button[aria-expanded="true"] rect:first-of-type {
+  display: none !important;
+}
+
 div.cd-content--toggle {
   left: 0;
+  padding: 0 1rem 1rem 0.25rem;
   position: absolute;
   right: 0;
+  text-align: left;
 }
