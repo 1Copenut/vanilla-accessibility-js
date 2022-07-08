@@ -1,0 +1,19 @@
+{
+  "name": "multi-header-table",
+  "version": "1.0.0",
+  "description": "A proof-of-concept table with multiple header rows and abbreviated column names",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1"
+  },
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "tables"
+  ],
+  "author": "Trevor Pierce",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

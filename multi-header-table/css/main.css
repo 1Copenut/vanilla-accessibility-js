@@ -1,0 +1,227 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+main {
+  margin-top: 1.5rem;
+  margin-inline: auto;
+  max-width: 75%;
+}
+
+/* ==================================================
+ * TABLE ELEMENT STYLES
+ * ================================================== */
+h1,
+h2 {
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  text-align: start;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+table {
+  border-collapse: collapse;
+  color: #222;
+  line-height: 1.625;
+  text-align: left;
+  width: 100%;
+}
+
+caption {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+caption small {
+  color: #727272;
+  display: none;
+  font-size: 0.875em;
+  margin-bottom: 1rem;
+  padding: 0 0 0 0.55rem;
+  text-align: left;
+}
+
+thead {
+  line-height: 1.125;
+}
+thead th,
+thead td,
+tbody th,
+tbody td {
+  padding: 0.75rem 1.25rem 0.75rem 1rem;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:first-of-type {
+  border-top: 1px solid #ddd;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  padding-bottom: 1rem;
+}
+
+tfoot {
+  text-align: center;
+}
+tfoot th,
+tfoot tr {
+  border-top: 1px solid #ccc;
+  color: #727272;
+  font-style: italic;
+  font-weight: 400;
+}
+
+tfoot th,
+tfoot td {
+  padding: 1rem 0 0;
+}
+
+/* ==================================================
+ * TABLE ROWSPAN OVERRIDES
+ * ================================================== */
+th[rowspan="2"],
+th[rowspan="3"],
+th[rowspan="4"],
+th[rowspan="2"],
+th[rowspan="6"],
+th[rowspan="7"],
+th[rowspan="8"],
+th[rowspan="9"],
+th[rowspan="10"],
+td[rowspan="2"],
+td[rowspan="3"],
+td[rowspan="4"],
+td[rowspan="2"],
+td[rowspan="6"],
+td[rowspan="7"],
+td[rowspan="8"],
+td[rowspan="9"],
+td[rowspan="10"] {
+  vertical-align: top;
+}
+
+/* ==================================================
+ * INLINE ELEMENT STYLES
+ * ================================================== */
+
+abbr {
+  text-decoration: none;
+}
+
+a {
+  color: #3366bb;
+}
+a:visited {
+  color: #3366bb;
+}
+a:hover,
+a:focus {
+  color: #1d3a6b;
+}
+a:focus {
+  background-color: #2e5ba7;
+  color: #fff;
+  outline: 0;
+  padding: 0.325rem 0.625rem;
+  text-decoration: none;
+}
+
+/* ==================================================
+ * COMPONENT CLASSES
+ * ================================================== */
+.c-table__container {
+  border: 1px solid #121212;
+  overflow-x: auto;
+  padding: 2rem;
+}
+
+.c-table__container:focus {
+  outline: 3px solid #2e5ba7;
+}
+
+.c-table__header--label span {
+  box-shadow: 0 2px 0 #ddd;
+  display: block;
+  font-size: 0.875em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding-bottom: 0.35rem;
+}
+
+/* ==================================================
+ * JAVASCRIPT DYNAMIC CLASSES
+ * ================================================== */
+ .js-scroll h2 {
+  text-align: start;
+ }
+ 
+.js-scroll caption small {
+  display: block;
+}
+
+/* ==================================================
+ * UTILITY CLASSES
+ * ================================================== */
+.u-border--borderless-bottom {
+  border-bottom: none !important;
+}
+
+.u-defined-width--15 {
+  width: 15%;
+}
+
+.u-skip-nav {
+  background: #fff;
+  height: 60px;
+  left: 0;
+  line-height: 60px;
+  padding-left: 16px;
+  position: absolute;
+  right: 0;
+  text-decoration: underline !important;
+  top: -60px;
+  z-index: 5;
+}
+
+.u-skip-nav:focus {
+  display: block;
+  top: 0;
+}
+
+.u-sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.u-text--align-center {
+  text-align: center;
+}
+
+.u-text--align-right {
+  text-align: right;
+}
