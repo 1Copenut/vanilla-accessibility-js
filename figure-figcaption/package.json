@@ -1,0 +1,17 @@
+{
+  "name": "aria-details",
+  "version": "1.0.0",
+  "description": "A proof-of-concept to provide more information figure and figcaption markup",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1"
+  },
+  "keywords": [
+    "accessibility"
+  ],
+  "author": "Trevor Pierce",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
