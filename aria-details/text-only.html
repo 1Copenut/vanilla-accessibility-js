@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Details and summary aria-details</title>
+  <title>Text only aria-details</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -15,23 +15,23 @@
       <li><a href="/">Details and summary aria-details</a></li>
       <li><a href="/text-only.html">Text only aria-details</a></li>
     </ul>
-    <h1>Details and summary aria-details</h1>
+    <h1>Text only aria-details</h1>
     <div>
       <img src="imgs/thermal-boxing-800x533.jpg" width="800" height="533"
-        alt="Stucco building with Thermal Boxing Club spray painted on the side" aria-details="photo-definition" />
+        alt="Stucco building with Thermal Boxing Club spray painted on the side" aria-details="definition"
+        class="u-no-margin" />
 
-      <details>
-        <summary>
-          <p id="photo-definition" role="definition">Thermal Boxing Club, 2016</p>
-        </summary>
-        <p>I took this photo on a trip in October, 2016. We drove through Thermal, California on the way to the <a
-            href="https://www.parks.ca.gov/?page_id=639">Salton Sea State Recreation Area</a>. It might have been the
+      <div id="definition">
+        <p>Thermal Boxing Club, 2016</p>
+        <p>I took this photo on a trip in October, 2016. We drove through
+          Thermal, California on the way to the <a href="https://www.parks.ca.gov/?page_id=639">Salton Sea State
+            Recreation Area</a>. It might have been the
           long
           way around, but we arrived eventually. I liked the juxtaposition of the stucco
           buildings&mdash;built to last in the California heat&mdash;and the spray-painted message informing passers by
           this was the spot for local fighters wanting to train.
         </p>
-      </details>
+      </div>
     </div>
   </main>
 </body>

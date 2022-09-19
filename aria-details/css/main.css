@@ -19,12 +19,21 @@ summary {
   padding: 1rem;
 }
 
-summary + * {
-  margin: 1rem 1.5rem;
+summary + *,
+p {
+  margin: 1rem;
   max-width: 65ch;
 }
 
-[role="definition"] {
+summary p[role="definition"] {
   display: inline;
   margin-left: 0.5rem;
+}
+
+ul {
+  padding-left: 0.5rem;
+}
+
+.u-no-margin {
+  margin: 0 !important;
 }
