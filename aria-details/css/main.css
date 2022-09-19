@@ -1,0 +1,30 @@
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  line-height: 1.5;
+}
+
+main {
+  margin-inline: auto;
+  max-width: max-content;
+}
+
+img {
+  padding: 0;
+  margin: 0 0 2rem;
+  width: 100%;
+}
+
+summary {
+  background: aliceblue;
+  padding: 1rem;
+}
+
+summary + * {
+  margin: 1rem 1.5rem;
+  max-width: 65ch;
+}
+
+[role="definition"] {
+  display: inline;
+  margin-left: 0.5rem;
+}
