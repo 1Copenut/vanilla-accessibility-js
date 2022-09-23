@@ -5,11 +5,12 @@ body {
 
 main {
   margin-inline: auto;
+  margin-bottom: 6rem;
   max-width: max-content;
 }
 
 figure {
-  margin: 0;
+  margin: 0 0 3rem 0;
 }
 
 figcaption {
