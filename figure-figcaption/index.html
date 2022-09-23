@@ -12,7 +12,11 @@
 <body>
   <main>
     <h1>Figure and figcaption</h1>
+    <p>There will be two versions now, one that uses text only, one that uses the <code>details</code> and
+      <code>summary</code> components.
+    </p>
     <div>
+      <h2>Figure with text</h2>
       <figure>
         <img src="imgs/thermal-boxing-800x533.jpg" width="800" height="533"
           alt="Stucco building with Thermal Boxing Club spray painted on the side" />
@@ -26,6 +30,38 @@
           </p>
         </figcaption>
       </figure>
+
+      <hr />
+
+      <h2>Details and summary</h2>
+      <figure>
+        <img src="imgs/thermal-boxing-800x533.jpg" width="800" height="533"
+          alt="Stucco building with Thermal Boxing Club spray painted on the side" />
+        <figcaption>
+          <details>
+            <summary>Thermal Boxing Club, 2016</summary>
+            <p>I took this photo on a trip in October, 2016. We drove through Thermal, California on the way to the <a
+                href="https://www.parks.ca.gov/?page_id=639">Salton Sea State Recreation Area</a>. It might have been
+              the
+              long way around, but we arrived eventually. I liked the juxtaposition of the stucco buildings&mdash;built
+              to
+              last in the California heat&mdash;and the spray-painted message informing passers by this was the spot for
+              local fighters wanting to train.
+            </p>
+          </details>
+        </figcaption>
+      </figure>
+
+      <hr />
+
+      <h2>Results</h2>
+      <ul>
+        <li>Safari + VO only announces the <code>summary</code> text. The <code>details</code> must be expanded to hear
+          the rest of the information read out. It still announces as a "figure" but there feels like information is
+          missing.</li>
+        <li>Firefox + VO doesn't announce as a "figure" at all. It reads out the image alt text and then I have to
+          traverse to the details accordion to unfurl the additional information.</li>
+      </ul>
     </div>
   </main>
 </body>
