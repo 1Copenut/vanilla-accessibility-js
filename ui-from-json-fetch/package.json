@@ -1,0 +1,15 @@
+{
+  "name": "ui-from-json-fetch",
+  "version": "1.0.0",
+  "description": "A proof-of-concept to build a card UI from async JSON calls",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1"
+  },
+  "keywords": [],
+  "author": "Trevor Pierce",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
