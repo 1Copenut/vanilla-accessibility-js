@@ -41,8 +41,9 @@ function buildCardsFromJSON(arr, container) {
    *
    * For instance:
    * target.innerHTML += "<img src='x' onerror='alert(1)'>";
-   * WILL fire an alert, which means a bad actor could run also
-   * bad JavaScript in your page if the upstream data is bad.
+   * WILL fire an alert, which means a bad actor could run
+   * also bad JavaScript in your page if the data being
+   * returned is compromised.
    *
    * Also see:
    * https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#security_considerations
