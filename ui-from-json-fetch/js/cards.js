@@ -1,4 +1,4 @@
-let html = "";
+let fragment = document.createDocumentFragment();
 
 function iterator(obj, headerId) {
   let tmpId = "";
@@ -6,50 +6,77 @@ function iterator(obj, headerId) {
   Object.keys(obj).forEach((key, i) => {
     if (key === "id") {
       tmpId = obj[key];
+
+      // In this case I know the ID is unique per user, so
+      // I'll use it to create the wrapper DIV for each card.
+      const cardContainer = document.createElement("div");
+      cardContainer.classList.add("cd-card__container");
+      cardContainer.setAttribute("aria-labelledby", headerId);
+      cardContainer.setAttribute("role", "region");
+
+      fragment.appendChild(cardContainer);
+
+      // Return early because I'll use the ID in the next stanza
       return;
     }
 
     if (key === "name" && i !== 0) {
-      html += `<h2 class="cd-card__header" id=${headerId}>${obj[key]}</h2>`;
-      html += `<span><strong>user ID:</strong> ${tmpId}</span>`;
+      const heading = document.createElement("h2");
+      const span = document.createElement("span");
+      const strong = document.createElement("strong");
+      const headingText = document.createTextNode(obj[key]);
+      const userIdLabel = document.createTextNode("User ID: ");
+      const userId = document.createTextNode(tmpId);
+
+      heading.classList.add("cd-card__header");
+      heading.setAttribute("id", headerId);
+      heading.appendChild(headingText);
+
+      strong.appendChild(userIdLabel);
+      span.appendChild(strong);
+      span.appendChild(userId);
+
+      fragment.lastElementChild.appendChild(heading);
+      fragment.lastElementChild.appendChild(span);
     }
 
     if (typeof obj[key] !== "object") {
-      html += `<span><strong>${key}:</strong> ${obj[key]}</span>`;
+      const span = document.createElement("span");
+      const strong = document.createElement("strong");
+      const label = document.createTextNode(`${key}: `);
+      const value = document.createTextNode(obj[key]);
+
+      strong.appendChild(label);
+      span.appendChild(strong);
+      span.appendChild(value);
+
+      fragment.lastElementChild.appendChild(span);
     }
 
     if (typeof obj[key] === "object" && obj[key] !== null) {
-      html += `<span class="cd-card__sub-section cd-card__sub-section--${key}"><strong>${key}</strong></span>`;
+      const span = document.createElement("span");
+      const label = document.createTextNode(`${key}`);
+
+      span.classList.add("cd-card__sub-section");
+      span.classList.add(`cd-card__sub-section--${key}`);
+      span.appendChild(label);
+
+      fragment.lastElementChild.appendChild(span);
+
       iterator(obj[key]);
     }
   });
 }
 
-function buildCardsFromJSON(arr, container) {
+function buildCardsFromJSON(arr, targetId) {
   arr.forEach((item, i) => {
     let headerId = `header-id-${i + 1}`;
-
-    html += `<div class="cd-card__container" aria-labelledby=${headerId} role="group">`;
     iterator(item, headerId);
-    html += `</div>`;
   });
 
-  /**
-   * Be aware this is a potential vector for cross-site scripting (XSS).
-   * ALWAYS know your data source and if it seems hinky, DO NOT
-   * add data in such a cavalier fashion.
-   *
-   * For instance:
-   * target.innerHTML += "<img src='x' onerror='alert(1)'>";
-   * WILL fire an alert, which means a bad actor could run
-   * also bad JavaScript in your page if the data being
-   * returned is compromised.
-   *
-   * Also see:
-   * https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#security_considerations
-   */
-  const target = document.getElementById(container);
-  target.innerHTML += html;
+  // Append the completed document fragment to the container
+  const targetElementById = document.getElementById(targetId);
+  targetElementById.appendChild(fragment);
 }
 
 export { buildCardsFromJSON };
