@@ -23,3 +23,7 @@ If both of these are true, [clone the vanilla-accessibility-js repository](https
 1. `$ npm run start`
 1. Open a browser window and type in `localhost:8080` or `127.0.0.1:8080`
 1. Test as needed
+
+## Resources
+* [MDN: Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+* [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/)
