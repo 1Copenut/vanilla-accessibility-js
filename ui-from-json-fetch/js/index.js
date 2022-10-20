@@ -1,6 +1,9 @@
 import { data } from "./json-data.js";
+import { fetchData } from "./fetchData.js";
 import { buildCardsFromJSON } from "./cards.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  buildCardsFromJSON(data, "all-cards");
+  fetchData("https://jsonplaceholder.typicode.com/users").then((data) =>
+    buildCardsFromJSON(data, "all-cards")
+  );
 });
