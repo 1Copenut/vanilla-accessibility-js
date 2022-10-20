@@ -1,4 +1,3 @@
-import { data } from "./json-data.js";
 import { fetchData } from "./fetchData.js";
 import { buildCardsFromJSON } from "./cards.js";
 
