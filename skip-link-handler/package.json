@@ -6,9 +6,9 @@
   "scripts": {
     "start": "http-server -d fase -c-1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["accessibility", "keyboard"],
+  "author": "Trevor Pierce",
+  "license": "MIT",
   "dependencies": {
     "http-server": "^14.1.1"
   }
