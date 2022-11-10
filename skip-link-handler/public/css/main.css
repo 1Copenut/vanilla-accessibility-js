@@ -1,0 +1,8 @@
+main {
+  margin-inline: auto;
+  max-width: 75ch;
+}
+
+#scroll-container {
+  margin-top: 150rem;
+}
