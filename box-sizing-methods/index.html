@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Sizing Methods</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <main>
+    <h1>Box sizing methods</h1>
+    <p>Comparing <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect">getBoundingClientWidth</a>
+      to <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth">offsetWidth</a> / <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight">offsetHeight</a> for
+      determining element box sizes.</p>
+    <div>
+      <h2>getBoundingClientWidth &mdash; no parent scaling</h2>
+      <div id="parent-box-1">
+        <div class="box-wrapper">
+          <div class="box"></div>
+        </div>
+        <div class="stats"></div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <h2>getBoundingClientWidth &mdash; parent scaling 50%</h2>
+      <div id="parent-box-2">
+        <div class="box-wrapper">
+          <div class="box"></div>
+        </div>
+        <div class="stats"></div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <h2>offsetHeight and offsetWidth &mdash; no parent scaling</h2>
+      <div id="parent-box-3">
+        <div class="box-wrapper">
+          <div class="box"></div>
+        </div>
+        <div class="stats"></div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <h2>offsetHeight and offsetWidth &mdash; parent scaling 50%</h2>
+      <div id="parent-box-4">
+        <div class="box-wrapper">
+          <div class="box"></div>
+        </div>
+        <div class="stats"></div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="js/index.js"></script>
+</body>
+
+</html>
