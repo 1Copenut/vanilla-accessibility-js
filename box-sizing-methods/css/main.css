@@ -6,7 +6,7 @@ body {
 main {
   margin-inline: auto;
   margin-bottom: 6rem;
-  max-width: max-content;
+  max-width: 72ch;
 }
 
 .box-wrapper {
@@ -28,6 +28,11 @@ main {
 
 .stats {
   padding: 20px 0 !important;
+}
+
+#parent-box-1 .box-wrapper,
+#parent-box-3 .box-wrapper {
+  transform: scale(1);
 }
 
 #parent-box-2 .box-wrapper,

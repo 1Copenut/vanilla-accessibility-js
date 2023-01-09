@@ -3,14 +3,21 @@ const offsetClientRectData = (parentId) => {
   const target = parent.querySelector(".box");
   const stats = parent.querySelector(".stats");
 
-  const paraHeight = document.createElement("p");
-  const paraWidth = document.createElement("p");
+  const rect = {
+    offsetTop: "offsetTop",
+    offsetLeft: "offsetLeft",
+    offsetWidth: "offsetWidth",
+    offsetHeight: "offsetHeight",
+    offsetParent: "offsetParent",
+  };
 
-  paraHeight.textContent = `width: ${target.offsetHeight}`;
-  paraWidth.textContent = `width: ${target.offsetWidth}`;
-
-  stats.appendChild(paraWidth);
-  stats.appendChild(paraHeight);
+  for (const key in rect) {
+    if (typeof key !== "function") {
+      let para = document.createElement("p");
+      para.textContent = `${key}: ${target[rect[key]]}`;
+      stats.appendChild(para);
+    }
+  }
 };
 
 export default offsetClientRectData;

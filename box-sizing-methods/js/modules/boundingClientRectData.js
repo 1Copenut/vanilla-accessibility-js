@@ -11,6 +11,10 @@ const boundingClientRectData = (parentId) => {
       stats.appendChild(para);
     }
   }
+
+  let para2 = document.createElement("p");
+  para2.textContent = `offsetParent: ${target.offsetParent}`;
+  stats.appendChild(para2);
 };
 
 export default boundingClientRectData;
