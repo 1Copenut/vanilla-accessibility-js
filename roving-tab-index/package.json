@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "http-server -p 8080 -c-1"
+    "start": "http-server -p 8080 -c-1"
   },
   "keywords": [],
   "author": "",
