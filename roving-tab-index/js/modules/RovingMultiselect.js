@@ -15,7 +15,6 @@ function RovingMultiselect(id, targetClass) {
 }
 
 RovingMultiselect.prototype.handleClick = function (e) {
-  console.log("Click event registered");
   const children = e.target.parentNode.children;
 
   for (let i = 0; i < children.length; i++) {
