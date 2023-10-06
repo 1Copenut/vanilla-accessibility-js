@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -d fase -c-1"
+    "start": "http-server -p 8080 -c-1"
   },
   "keywords": ["accessibility", "keyboard"],
   "author": "Trevor Pierce",
