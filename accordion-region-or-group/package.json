@@ -1,7 +1,7 @@
 {
   "name": "accordion-region-or-group",
   "version": "1.0.0",
-  "description": "",
+  "description": "Explore the use of region or group role for accordion (collapsible section) content blocks",
   "main": "index.js",
   "scripts": {
     "start": "http-server -p 8080 -c-1"
@@ -11,8 +11,8 @@
     "expandable sections",
     "accordion"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Trevor Pierce",
+  "license": "MIT",
   "dependencies": {
     "http-server": "^14.1.1"
   }
