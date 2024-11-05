@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible breadcrumbs</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="l-container">
+    <header>
+      <nav aria-label="Breadcrumbs">
+        <ol class="c-breadcrumb__list">
+          <li class="c-breadcrumb__list-item"><a href="#">Home</a></li>
+          <li class="c-breadcrumb__list-item"><a href="#">Books</a></li>
+          <li class="c-breadcrumb__list-item"><a href="#">Fiction</a></li>
+          <li class="c-breadcrumb__list-item"><a href="#">Science Fiction</a></li>
+          <li class="c-breadcrumb__list-item"><a href="#" aria-current="page">Dune</a></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Accessible breadcrumbs</h1>
+      <p>I know, another <a
+          href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/">breadcrumb</a> example. This
+        one is my attempt to meet the following criteria:</p>
+      <ol>
+        <li>All breadcrumbs are valid links</li>
+        <li>The current page <code>aria-current="page"</code> is not clickable <br />
+          <ul>
+            <li>The terminal breadcrumb shows a standard cursor</li>
+            <li>The terminal breadcrumb's click events can be prevented with JavaScript or CSS</li>
+          </ul>
+        </li>
+        <li>Screen readers traverse each link individually</li>
+      </ol>
+      <p>This last point about screen readers traversing links individually is interesting. I discovered that my
+        unordered list was being treated as a <a href="https://www.w3.org/WAI/ARIA/apg/patterns/treeview/">tree
+          view</a>&mdash;not a standard list&mdash;when I first coded it. After
+        some exploration, I discovered by setting the UL tag's display to <strong>"flex"</strong>, each list item could
+        be
+        reached using the
+        DOWN_ARROW key.</p>
+    </main>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>
